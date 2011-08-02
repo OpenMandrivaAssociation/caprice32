@@ -16,6 +16,7 @@ License: GPLv2
 #except for cpc roms, which just are just allowed be distributed
 URL: http://caprice32.sourceforge.net/
 BuildRequires: SDL-devel
+BuildRequires: zlib-devel
 BuildRoot: %{_tmppath}/%{name}-build
 
 
