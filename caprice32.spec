@@ -30,8 +30,7 @@ Detailed usage instructions can be found in the included documentation.
 perl -pi -e "s|\r\n|\n|g" README.txt
 
 %build
-%make -f makefile.unix
-#RELEASE=true
+%make -f makefile.unix RELEASE=true
 
 %install
 rm -rf %{buildroot}
