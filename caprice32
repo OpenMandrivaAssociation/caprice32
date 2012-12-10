@@ -1,0 +1,29 @@
+#!/bin/sh
+# Very simple wrapper for caprice32.
+CAPRICE32_HOME=$HOME/.caprice32
+CAPRICE32_BIN=cap32
+CAPRICE32_DATA=/usr/share/caprice32
+ROMS_DIR=rom
+CONFIG_FILE=cap32.cfg
+
+#create a working directory for caprice32
+# where it can find the config, roms *and* create files 
+if [ ! -d $CAPRICE32_HOME ]; then
+  mkdir $CAPRICE32_HOME;
+fi;
+cd $CAPRICE32_HOME || exit
+
+
+#copy the template config
+if [ ! -e $CAPRICE32_HOME/$CONFIG_FILE ]; then
+  cp $CAPRICE32_DATA/$CONFIG_FILE $CAPRICE32_HOME/$CONFIG_FILE;
+fi;
+
+#link to the roms
+if [ ! -e $CAPRICE32_HOME/$ROMS_DIR ]; then
+  ln -s $CAPRICE32_DATA/$ROMS_DIR $ROMS_DIR;
+fi;
+
+$CAPRICE32_BIN $@
+
+

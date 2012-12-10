@@ -1,24 +1,19 @@
-%define name caprice32
-%define version 4.2.0
-%define release %mkrel 2
-
-Summary: CaPriCe32 - Amstrad CPC Emulator
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: %{name}-%{version}-src.tar.bz2
-Source1: %{name}.png
+Summary:	CaPriCe32 - Amstrad CPC Emulator
+Name:		caprice32
+Version:	4.2.0
+Release:	3
+Group:		Emulators
+#v2, except for cpc roms, which just are just allowed be distributed
+License:	GPLv2
+URL:		http://caprice32.sourceforge.net/
+Source0:	%{name}-%{version}-src.tar.bz2
+Source1:	%{name}.png
 #this is the same icon as xcpc, but converted in png
-Source2: %{name}
-Group: Emulators
-License: GPLv2
-#v2
-#except for cpc roms, which just are just allowed be distributed
-URL: http://caprice32.sourceforge.net/
-BuildRequires: SDL-devel
-BuildRequires: zlib-devel
-BuildRoot: %{_tmppath}/%{name}-build
-
+Source2:	%{name}
+BuildRequires:	pkgconfig(gl)
+BuildRequires:	pkgconfig(glu)
+BuildRequires:	pkgconfig(sdl)
+BuildRequires:	pkgconfig(zlib)
 
 %description
 CaPriCe32 emulates the Amstrad CPC home computer models 464, 664 and 6128 
@@ -33,7 +28,6 @@ perl -pi -e "s|\r\n|\n|g" README.txt
 %make -f makefile.unix RELEASE=true
 
 %install
-rm -rf %{buildroot}
 #binary
 install -d -m 755 %{buildroot}%{_bindir}
 install -m 755 cap32 %{buildroot}%{_bindir}
@@ -48,7 +42,6 @@ install -m 644 cap32.cfg %{buildroot}%{_datadir}/%{name}/
 install -d -m 755 %{buildroot}%{_iconsdir}
 install -m 644 %{SOURCE1} %{buildroot}%{_iconsdir}/
 
-
 #xdg menu
 install -d -m 755 %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
@@ -56,7 +49,7 @@ cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 Version=1.0
 Encoding=UTF-8
 Name=CaPriCe32
-Comment=%{Summary}
+Comment=Amstrad CPC Emulator
 Exec=%{_bindir}/%{name}
 Icon=%{name}
 Terminal=false
@@ -65,9 +58,7 @@ Categories=X-MandrivaLinux-MoreApplications-Emulators;Emulator;
 EOF
 
 %files
-%defattr(-,root,root)
 %doc README.txt
-#COPYING.txt
 %attr(0755,root,root) %{_bindir}/cap32
 %attr(0755,root,root) %{_bindir}/%{name}
 %dir %{_datadir}/%{name}
@@ -75,12 +66,13 @@ EOF
 %{_iconsdir}/*
 %{_datadir}/applications/mandriva-%{name}.desktop
 
-%clean
-rm -rf %{buildroot}
+%changelog
+* Wed Aug 03 2011 Andrey Bondrov <abondrov@mandriva.org> 4.2.0-2mdv2012.0
++ Revision: 692924
+- Fix debug info extraction error
+- Fix BuildRequires
+- imported package caprice32
 
-%post
-%{update_menus}
 
-%postun
-%{clean_menus}
-
+* Sun Jul 29 2007 Guillaume Bedot <littletux@zarb.org> 4.2.0-1plf2008.0
+- First PLF package for caprice32
