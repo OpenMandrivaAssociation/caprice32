@@ -1,4 +1,4 @@
-Summary:	CaPriCe32 - Amstrad CPC Emulator
+Summary:	- Amstrad CPC Emulator
 Name:		caprice32
 Version:	4.2.0
 Release:	3
