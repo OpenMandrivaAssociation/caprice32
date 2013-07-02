@@ -1,7 +1,7 @@
-Summary:	- Amstrad CPC Emulator
+Summary:	Amstrad CPC Emulator
 Name:		caprice32
 Version:	4.2.0
-Release:	3
+Release:	4
 Group:		Emulators
 #v2, except for cpc roms, which just are just allowed be distributed
 License:	GPLv2
