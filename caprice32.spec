@@ -15,6 +15,8 @@ BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(sdl)
 BuildRequires:	pkgconfig(zlib)
 
+%define debug_package %{nil}
+
 %description
 CaPriCe32 emulates the Amstrad CPC home computer models 464, 664 and 6128 
 faithfully on your PC.
