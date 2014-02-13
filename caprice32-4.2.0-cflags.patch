@@ -1,0 +1,12 @@
+diff -urN caprice32-4.2.0-src/makefile.unix caprice32-4.2.0-src-patched/makefile.unix
+--- caprice32-4.2.0-src/makefile.unix	2004-10-24 05:48:00.000000000 +1100
++++ caprice32-4.2.0-src-patched/makefile.unix	2014-02-13 20:07:05.806320657 +1100
+@@ -6,7 +6,7 @@
+ GFLAGS	= -Wall `sdl-config --cflags`
+ 
+ ifdef RELEASE
+-CFLAGS	= $(GFLAGS) -O2 -funroll-loops -ffast-math -fomit-frame-pointer -fno-strength-reduce -finline-functions -s
++CFLAGS	+= $(GFLAGS)
+ else
+ CFLAGS	= $(GFLAGS) -gstabs+
+ endif
