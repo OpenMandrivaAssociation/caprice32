@@ -5,7 +5,7 @@ Release:	5
 #v2, except for cpc roms, which just are just allowed be distributed
 License:	GPLv2+
 Group:		Emulators
-Url:		http://caprice32.sourceforge.net/
+Url:		https://caprice32.sourceforge.net/
 Source0:	%{name}-%{version}-src.tar.bz2
 Source1:	%{name}.png
 #this is the same icon as xcpc, but converted in png
