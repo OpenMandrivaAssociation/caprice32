@@ -11,6 +11,7 @@ Source1:	%{name}.png
 #this is the same icon as xcpc, but converted in png
 Source2:	%{name}
 Patch0:		caprice32-4.2.0-cflags.patch
+BuildRequires:	make
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(sdl)
